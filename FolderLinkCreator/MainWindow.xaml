@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:FolderLinkCreator"
         xmlns:xamlHost="clr-namespace:Microsoft.Toolkit.Wpf.UI.XamlHost;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="320" Width="640" ResizeMode="NoResize">
     <Grid>
-        <xamlHost:WindowsXamlHost InitialTypeName="FolderLinkCreator.UWPUI.MasterEntryControl" />
+        <xamlHost:WindowsXamlHost x:Name="MasterEntryControl"
+                                  InitialTypeName="FolderLinkCreator.UWPUI.MasterEntryControl"
+                                  ChildChanged="MasterEntryControl_ChildChanged" />
     </Grid>
 </Window>

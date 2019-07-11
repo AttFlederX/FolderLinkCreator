@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace FolderLinkCreator.UWPCtrls
+namespace FolderLinkCreator.UWPUI
 {
     public sealed partial class MasterEntryControl : UserControl
     {
