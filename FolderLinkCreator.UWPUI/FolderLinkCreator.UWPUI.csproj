@@ -123,12 +123,16 @@
     <Compile Include="MasterEntryControl.xaml.cs">
       <DependentUpon>MasterEntryControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\FolderLinkCreator.UWPUI.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.8</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
+      <Version>10.0.18362.2002-preview</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

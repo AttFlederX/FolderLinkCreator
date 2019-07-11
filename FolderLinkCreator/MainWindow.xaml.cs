@@ -1,5 +1,4 @@
-﻿using FolderLinkCreator.UWPUI;
-using FolderLinkCreator.ViewModels;
+﻿using FolderLinkCreator.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Windows.UI.Xaml.Controls.Primitives;
+using FolderLinkCreator.UWPUI;
+using BindingMode = Windows.UI.Xaml.Data.BindingMode;
 
 namespace FolderLinkCreator
 {
@@ -27,55 +28,50 @@ namespace FolderLinkCreator
 
         public MainWindow()
         {
-            DataContext = new MainViewModel();
-
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
 
         private void MasterEntryControl_ChildChanged(object sender, EventArgs e)
         {
-            if (MasterEntryControl.Child is MasterEntryControl msentryctrl)
+            if (MasterEntryControlHost.Child is MasterEntryControl msentryctrl)
             {
-                //msentryctrl.TargetFolderTextbox.SetBinding(Windows.UI.Xaml.Controls.TextBox.TextProperty,
-                //    new Windows.UI.Xaml.Data.Binding()
-                //    {
-                //        Source = ViewModel,
-                //        Path = new Windows.UI.Xaml.PropertyPath("TargetFolderPath"),
-                //        Mode = Windows.UI.Xaml.Data.BindingMode.TwoWay,
-                //        UpdateSourceTrigger = Windows.UI.Xaml.Data.UpdateSourceTrigger.PropertyChanged
-                //    }
-                //);
+                msentryctrl.SetBinding(MasterEntryControl.TargetFolderPathProperty,
+                    new Windows.UI.Xaml.Data.Binding()
+                    {
+                        Source = ViewModel.TargetFolderPath,
+                        Mode = BindingMode.TwoWay
+                    }
+                );
 
-                //msentryctrl.LinkLocationTextbox.SetBinding(Windows.UI.Xaml.Controls.TextBox.TextProperty,
-                //    new Windows.UI.Xaml.Data.Binding()
-                //    {
-                //        Source = ViewModel,
-                //        Path = new Windows.UI.Xaml.PropertyPath("LinkLocationPath"),
-                //        Mode = Windows.UI.Xaml.Data.BindingMode.TwoWay,
-                //        UpdateSourceTrigger = Windows.UI.Xaml.Data.UpdateSourceTrigger.PropertyChanged,
-                //    }
-                //);
+                msentryctrl.SetBinding(MasterEntryControl.LinkLocationPathProperty,
+                    new Windows.UI.Xaml.Data.Binding()
+                    {
+                        Source = ViewModel.LinkLocationPath,
+                        Mode = BindingMode.TwoWay
+                    }
+                );
 
-                //msentryctrl.TargetFolderBrowseButton.SetBinding(ButtonBase.CommandProperty,
-                //    new Windows.UI.Xaml.Data.Binding()
-                //    {
-                //        Source = ViewModel.BrowseTargetFolderCommand
-                //    }
-                //);
+                msentryctrl.TargetFolderBrowseButton.SetBinding(ButtonBase.CommandProperty,
+                    new Windows.UI.Xaml.Data.Binding()
+                    {
+                        Source = ViewModel.BrowseTargetFolderCommand
+                    }
+                );
 
-                //msentryctrl.LinkLocationBrowseButton.SetBinding(ButtonBase.CommandProperty,
-                //    new Windows.UI.Xaml.Data.Binding()
-                //    {
-                //        Source = ViewModel.BrowseLinkLocationPathCommand
-                //    }
-                //);
+                msentryctrl.LinkLocationBrowseButton.SetBinding(ButtonBase.CommandProperty,
+                    new Windows.UI.Xaml.Data.Binding()
+                    {
+                        Source = ViewModel.BrowseLinkLocationPathCommand
+                    }
+                );
 
-                //msentryctrl.CreateLinkButton.SetBinding(ButtonBase.CommandProperty,
-                //    new Windows.UI.Xaml.Data.Binding()
-                //    {
-                //        Source = ViewModel.CreateLinkCommand
-                //    }
-                //);
+                msentryctrl.CreateLinkButton.SetBinding(ButtonBase.CommandProperty,
+                    new Windows.UI.Xaml.Data.Binding()
+                    {
+                        Source = ViewModel.CreateLinkCommand
+                    }
+                );
             }
         }
     }

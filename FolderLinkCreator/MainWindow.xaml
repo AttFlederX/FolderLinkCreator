@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="320" Width="640" ResizeMode="NoResize">
     <Grid>
-        <xamlHost:WindowsXamlHost x:Name="MasterEntryControl"
+        <xamlHost:WindowsXamlHost x:Name="MasterEntryControlHost"
                                   InitialTypeName="FolderLinkCreator.UWPUI.MasterEntryControl"
                                   ChildChanged="MasterEntryControl_ChildChanged" />
     </Grid>

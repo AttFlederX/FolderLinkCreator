@@ -71,7 +71,13 @@
     <Content Include="Images\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FolderLinkCreator\FolderLinkCreator.csproj" />
+    <ProjectReference Include="..\FolderLinkCreator\FolderLinkCreator.csproj">
+      <DesktopBridgeSelfContained>False</DesktopBridgeSelfContained>
+      <DesktopBridgeIdentifier>
+      </DesktopBridgeIdentifier>
+      <Properties>DesktopBridgeSelfContained=%(DesktopBridgeSelfContained);DesktopBridgeIdentifier=%(DesktopBridgeIdentifier)</Properties>
+      <SkipGetTargetFrameworkProperties>True</SkipGetTargetFrameworkProperties>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>
