@@ -284,12 +284,14 @@ namespace FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo
             case "FolderLinkCreator.UWPUI.MasterEntryControl.TargetFolderPath":
                 userType = (global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FolderLinkCreator.UWPUI.MasterEntryControl");
                 xamlMember = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlMember(this, "TargetFolderPath", "String");
+                xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_0_MasterEntryControl_TargetFolderPath;
                 xamlMember.Setter = set_0_MasterEntryControl_TargetFolderPath;
                 break;
             case "FolderLinkCreator.UWPUI.MasterEntryControl.LinkLocationPath":
                 userType = (global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FolderLinkCreator.UWPUI.MasterEntryControl");
                 xamlMember = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlMember(this, "LinkLocationPath", "String");
+                xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_1_MasterEntryControl_LinkLocationPath;
                 xamlMember.Setter = set_1_MasterEntryControl_LinkLocationPath;
                 break;

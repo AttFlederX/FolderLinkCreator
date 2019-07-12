@@ -22,48 +22,26 @@ namespace FolderLinkCreator.UWPUI
 {
     public sealed partial class MasterEntryControl : UserControl
     {
-        public static readonly DependencyProperty TargetFolderPathProperty =
-            DependencyProperty.Register(
-                "TargetFolderPath", typeof(string),
-                typeof(MasterEntryControl), null
-            );
 
-        public static readonly DependencyProperty LinkLocationPathProperty =
-            DependencyProperty.Register(
-                "LinkLocationPath", typeof(string),
-                typeof(MasterEntryControl), null
-            );
-
-        public string TargetFolderPath
-        {
-            get => (string)GetValue(TargetFolderPathProperty);
-            set => SetValue(TargetFolderPathProperty, value);
-        }
-
-        public string LinkLocationPath
-        {
-            get => (string)GetValue(LinkLocationPathProperty);
-            set => SetValue(LinkLocationPathProperty, value);
-        }
-
+        public TextBox TargetFolderTextBox => this.targetFolderTextBox;
+        public TextBox LinkLocationTextBox => this.linkLocationTextBox;
         public Button TargetFolderBrowseButton => this.targetFolderBrowseButton;
         public Button LinkLocationBrowseButton => this.linkLocationBrowseButton;
         public Button CreateLinkButton => this.createLinkButton;
 
+        public event EventHandler<TextChangedEventArgs> TextBoxTextChanged;
 
         public MasterEntryControl()
         {
             this.InitializeComponent();
-            DataContext = this;
+            
+            TargetFolderTextBox.TextChanged += TextBoxOnTextChanged;
+            LinkLocationTextBox.TextChanged += TextBoxOnTextChanged;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-
-        [NotifyPropertyChangedInvocator]
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void TextBoxOnTextChanged(object sender, TextChangedEventArgs e)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            TextBoxTextChanged?.Invoke(sender, e);
         }
     }
 }

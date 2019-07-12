@@ -38,9 +38,9 @@
                    Text="Target folder"
                    Margin="0, 16, 0, 8" />
 
-        <TextBox Grid.Row="1" Grid.Column="0"
-                 HorizontalAlignment="Stretch"
-                 Text="{x:Bind TargetFolderPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="targetFolderTextBox" 
+                 Grid.Row="1" Grid.Column="0"
+                 HorizontalAlignment="Stretch"/>
 
         <Button x:Name="targetFolderBrowseButton" 
                 Grid.Row="1" Grid.Column="1"
@@ -55,9 +55,9 @@
                    Text="Link location"
                    Margin="0, 16, 0, 8" />
 
-        <TextBox Grid.Row="3" Grid.Column="0"
-                 HorizontalAlignment="Stretch"
-                 Text="{x:Bind LinkLocationPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="linkLocationTextBox" 
+                 Grid.Row="3" Grid.Column="0"
+                 HorizontalAlignment="Stretch" />
 
         <Button x:Name="linkLocationBrowseButton" 
                 Grid.Row="3" Grid.Column="1"

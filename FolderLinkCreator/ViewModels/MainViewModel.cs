@@ -29,21 +29,13 @@ namespace FolderLinkCreator.ViewModels
         public string TargetFolderPath
         {
             get => _targetFolderPath;
-            set
-            {
-                _targetFolderPath = value;
-                SetProperty(ref _targetFolderPath, value);
-            }
+            set => SetProperty(ref _targetFolderPath, value);
         }
 
         public string LinkLocationPath
         {
             get => _linkLocationPath;
-            set
-            {
-                _linkLocationPath = value;
-                OnPropertyChanged();
-            }
+            set => SetProperty(ref _linkLocationPath, value);
         }
 
         #endregion

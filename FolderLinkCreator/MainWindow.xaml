@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FolderLinkCreator"
         xmlns:xamlHost="clr-namespace:Microsoft.Toolkit.Wpf.UI.XamlHost;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
+        xmlns:uwpui="clr-namespace:FolderLinkCreator.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="320" Width="640" ResizeMode="NoResize">
     <Grid>
-        <xamlHost:WindowsXamlHost x:Name="MasterEntryControlHost"
-                                  InitialTypeName="FolderLinkCreator.UWPUI.MasterEntryControl"
-                                  ChildChanged="MasterEntryControl_ChildChanged" />
+        <uwpui:MasterEntryControlHost x:Name="MasterEntryCtrlHost"
+                                      ChildChanged="MasterEntryControl_ChildChanged"
+                                      TargetFolderPath="{Binding TargetFolderPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      LinkLocationPath="{Binding LinkLocationPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>

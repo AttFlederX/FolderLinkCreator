@@ -150,14 +150,14 @@ namespace FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo
             _typeNameTable = new string[5];
             _typeNameTable[0] = "FolderLinkCreator.UWPUI.MasterEntryControl";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[2] = "String";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.TextBox";
             _typeNameTable[3] = "Windows.UI.Xaml.Controls.Button";
             _typeNameTable[4] = "Windows.UI.Xaml.Controls.TreeViewNode";
 
             _typeTable = new global::System.Type[5];
             _typeTable[0] = typeof(global::FolderLinkCreator.UWPUI.MasterEntryControl);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[2] = typeof(global::System.String);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
             _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Button);
             _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.TreeViewNode);
         }
@@ -209,8 +209,8 @@ namespace FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo
             case 0:   //  FolderLinkCreator.UWPUI.MasterEntryControl
                 userType = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_0_MasterEntryControl;
-                userType.AddMemberName("TargetFolderPath");
-                userType.AddMemberName("LinkLocationPath");
+                userType.AddMemberName("TargetFolderTextBox");
+                userType.AddMemberName("LinkLocationTextBox");
                 userType.AddMemberName("TargetFolderBrowseButton");
                 userType.AddMemberName("LinkLocationBrowseButton");
                 userType.AddMemberName("CreateLinkButton");
@@ -222,7 +222,7 @@ namespace FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo
                 xamlType = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  String
+            case 2:   //  Windows.UI.Xaml.Controls.TextBox
                 xamlType = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
@@ -238,25 +238,15 @@ namespace FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo
         }
 
 
-        private object get_0_MasterEntryControl_TargetFolderPath(object instance)
+        private object get_0_MasterEntryControl_TargetFolderTextBox(object instance)
         {
             var that = (global::FolderLinkCreator.UWPUI.MasterEntryControl)instance;
-            return that.TargetFolderPath;
+            return that.TargetFolderTextBox;
         }
-        private void set_0_MasterEntryControl_TargetFolderPath(object instance, object Value)
+        private object get_1_MasterEntryControl_LinkLocationTextBox(object instance)
         {
             var that = (global::FolderLinkCreator.UWPUI.MasterEntryControl)instance;
-            that.TargetFolderPath = (global::System.String)Value;
-        }
-        private object get_1_MasterEntryControl_LinkLocationPath(object instance)
-        {
-            var that = (global::FolderLinkCreator.UWPUI.MasterEntryControl)instance;
-            return that.LinkLocationPath;
-        }
-        private void set_1_MasterEntryControl_LinkLocationPath(object instance, object Value)
-        {
-            var that = (global::FolderLinkCreator.UWPUI.MasterEntryControl)instance;
-            that.LinkLocationPath = (global::System.String)Value;
+            return that.LinkLocationTextBox;
         }
         private object get_2_MasterEntryControl_TargetFolderBrowseButton(object instance)
         {
@@ -281,19 +271,17 @@ namespace FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo
 
             switch (longMemberName)
             {
-            case "FolderLinkCreator.UWPUI.MasterEntryControl.TargetFolderPath":
+            case "FolderLinkCreator.UWPUI.MasterEntryControl.TargetFolderTextBox":
                 userType = (global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FolderLinkCreator.UWPUI.MasterEntryControl");
-                xamlMember = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlMember(this, "TargetFolderPath", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_0_MasterEntryControl_TargetFolderPath;
-                xamlMember.Setter = set_0_MasterEntryControl_TargetFolderPath;
+                xamlMember = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlMember(this, "TargetFolderTextBox", "Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.Getter = get_0_MasterEntryControl_TargetFolderTextBox;
+                xamlMember.SetIsReadOnly();
                 break;
-            case "FolderLinkCreator.UWPUI.MasterEntryControl.LinkLocationPath":
+            case "FolderLinkCreator.UWPUI.MasterEntryControl.LinkLocationTextBox":
                 userType = (global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FolderLinkCreator.UWPUI.MasterEntryControl");
-                xamlMember = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlMember(this, "LinkLocationPath", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_1_MasterEntryControl_LinkLocationPath;
-                xamlMember.Setter = set_1_MasterEntryControl_LinkLocationPath;
+                xamlMember = new global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlMember(this, "LinkLocationTextBox", "Windows.UI.Xaml.Controls.TextBox");
+                xamlMember.Getter = get_1_MasterEntryControl_LinkLocationTextBox;
+                xamlMember.SetIsReadOnly();
                 break;
             case "FolderLinkCreator.UWPUI.MasterEntryControl.TargetFolderBrowseButton":
                 userType = (global::FolderLinkCreator.UWPUI.FolderLinkCreator_UWPUI_XamlTypeInfo.XamlUserType)GetXamlTypeByName("FolderLinkCreator.UWPUI.MasterEntryControl");
