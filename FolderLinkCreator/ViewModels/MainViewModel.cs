@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -70,12 +68,20 @@ namespace FolderLinkCreator.ViewModels
 
         public ICommand CreateLinkCommand => new RelayCommand(param =>
         {
-            var linkLocationFullPath = Path.Combine(LinkLocationPath, Path.GetDirectoryName(TargetFolderPath));
+            var linkLocationFullPath = Path.Combine(LinkLocationPath, Path.GetFileName(TargetFolderPath));
             _hasError = false;
+
+            if (!Directory.Exists(TargetFolderPath) || !Directory.Exists(LinkLocationPath))
+            {
+                MessageBox.Show("Invalid folder paths", "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+
+                return;
+            }
 
             try
             {
-                var cmdproc = new Process(); // create new process
+                var cmdProc = new Process(); // create new process
 
                 // set to launch the cmd prompt & run the mklink command that creates the needed folder link
                 var startInfo = new ProcessStartInfo 
@@ -88,12 +94,12 @@ namespace FolderLinkCreator.ViewModels
                     RedirectStandardError = true 
                 };
 
-                cmdproc.StartInfo = startInfo;
-                cmdproc.ErrorDataReceived += LinkCreationFailed;
+                cmdProc.StartInfo = startInfo;
+                cmdProc.ErrorDataReceived += LinkCreationFailed;
 
-                cmdproc.Start();
+                cmdProc.Start();
 
-                cmdproc.WaitForExit();
+                cmdProc.WaitForExit();
 
                 if (!_hasError)
                 {

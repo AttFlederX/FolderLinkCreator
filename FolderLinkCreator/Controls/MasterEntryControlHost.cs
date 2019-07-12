@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
 using Microsoft.Toolkit.Win32.UI.XamlHost;
 using Microsoft.Toolkit.Wpf.UI.XamlHost;
 
@@ -25,18 +21,10 @@ namespace FolderLinkCreator.Controls
                 typeof(MasterEntryControlHost), new PropertyMetadata(string.Empty, TargetFolderPathPropertyChanged)
             );
 
-        private static void TargetFolderPathPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is MasterEntryControlHost host)
-            {
-                host.Control.TargetFolderTextBox.Text = e.NewValue.ToString();
-            }
-        }
-
         public static readonly DependencyProperty LinkLocationPathProperty =
             DependencyProperty.Register(
                 "LinkLocationPath", typeof(string),
-                typeof(MasterEntryControlHost), null
+                typeof(MasterEntryControlHost), new PropertyMetadata(string.Empty, LinkLocationPathPropertyChanged)
             );
 
         public string TargetFolderPath
@@ -68,10 +56,28 @@ namespace FolderLinkCreator.Controls
             SetContent();
         }
 
+
+        private static void TargetFolderPathPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is MasterEntryControlHost host)
+            {
+                host.Control.TargetFolderTextBox.Text = e.NewValue.ToString();
+            }
+        }
+
+        private static void LinkLocationPathPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is MasterEntryControlHost host)
+            {
+                host.Control.LinkLocationTextBox.Text = e.NewValue.ToString();
+            }
+        }
+
         private void ControlOnTextBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             TargetFolderPath = Control.TargetFolderTextBox.Text;
             LinkLocationPath = Control.LinkLocationTextBox.Text;
         }
+
     }
 }
